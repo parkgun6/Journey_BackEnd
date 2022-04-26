@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.geon.journey.board.mapper.ImageMapper">
+    <select id="findbyBno" resultType="org.geon.journey.board.entity.Image">
+        select * from tbl_image where bno = #{bno}
+    </select>
+
+    <insert id="insertImage">
+        insert into tbl_image (bno, uuid, imgName, path) values (#{bno},#{uuid},#{imgName},#{path})
+    </insert>
+
+    <update id="deleteImageByBno">
+        update tbl_image set deleteFlag = true where bno = #{bno}
+    </update>
+
+    <update id="deleteImage">
+        update tbl_image set deleteFlag = true where ino = #{ino}
+    </update>
+
+</mapper>
