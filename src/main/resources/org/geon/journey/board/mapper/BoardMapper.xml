@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.geon.journey.board.mapper.BoardMapper">
+
+    <select id="read" resultType="org.geon.journey.board.entity.Board">
+        select * from tbl_board where bno = #{bno} and deleteFlag = false
+    </select>
+
+    <select id="getList" resultType="map">
+        select
+               tb.bno,
+               tb.text,
+               group_concat(ino order by ti.ino separator '|') as ino,
+               group_concat(uuid order by ti.ino separator '|') as uuid,
+               group_concat(imgName order by ti.ino separator '|') as imgName,
+               group_concat(path order by ti.ino separator '|')as path,
+               tb.regDate
+        from tbl_board tb left join tbl_image ti on ti.bno = tb.bno
+        where tb.bno > 0 and tb.deleteFlag = false and ti.deleteFlag = false
+        group by bno
+        order by bno asc
+        limit #{page},10;
+    </select>
+
+    <insert id="insertBoard">
+        insert into tbl_board (text) values (#{text})
+    </insert>
+
+    <update id="update">
+        update tbl_board set text = #{text} where bno = #{bno}
+    </update>
+
+    <update id="delete">
+        update tbl_board set deleteFlag = true where bno = #{bno}
+    </update>
+
+</mapper>
