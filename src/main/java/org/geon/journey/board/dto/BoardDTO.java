@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardDTO {
 
-    private Long sno;
+    private Long bno;
 
     private String text;
 
@@ -24,8 +24,8 @@ public class BoardDTO {
 
     private Date modDate;
 
-    public BoardDTO(Long sno){
-        this.sno = sno;
+    public BoardDTO(Long bno){
+        this.bno = bno;
     };
 
     @Builder.Default
