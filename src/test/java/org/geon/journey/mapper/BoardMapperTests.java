@@ -23,7 +23,7 @@ public class BoardMapperTests {
 
     @Test
     public void getOne() {
-        log.info(mapper.read(1L));
+        log.info(mapper.getTextWithImg(498L));
     }
 
     @Test
