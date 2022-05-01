@@ -12,9 +12,11 @@ import java.util.stream.Collectors;
 
 public interface BoardService {
 
-//    List<ImageDTO> saveText(BoardDTO dto);
-//
-//    void modifyText(BoardDTO dto);
+    List<ImageDTO> saveText(BoardDTO dto);
+
+    List<Map<String,Object>> readTextWithImg(Long bno);
+
+    void modifyText(BoardDTO dto);
 
     void deleteText(Long bno);
 
@@ -24,12 +26,12 @@ public interface BoardService {
 
         Map<String, Object> entityMap = new HashMap<>();
 
-        Board testEntity = Board.builder()
-                .bno(dto.getSno())
+        Board boardEntity = Board.builder()
+                .bno(dto.getBno())
                 .text(dto.getText())
                 .build();
 
-        entityMap.put("testEntity", testEntity);
+        entityMap.put("boardEntity", boardEntity);
 
         List<ImageDTO> imgDTOList = dto.getImgDTOList();
 
@@ -51,7 +53,7 @@ public interface BoardService {
 
     default BoardDTO entityToDTO(Board entity, List<Image> imgEntitys){
         BoardDTO testDTO = BoardDTO.builder()
-                .sno(entity.getBno())
+                .bno(entity.getBno())
                 .text(entity.getText())
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
