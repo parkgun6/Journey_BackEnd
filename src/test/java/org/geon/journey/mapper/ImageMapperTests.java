@@ -17,6 +17,12 @@ public class ImageMapperTests {
     ImageMapper mapper;
 
     @Test
+    public void getImageList(){
+        Long bno = 5L;
+        log.info(mapper.getImageList(bno));
+    }
+
+    @Test
     public void delete(){
         Long ino = 1L;
         log.info(mapper.deleteImage(ino));
