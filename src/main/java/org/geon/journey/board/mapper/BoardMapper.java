@@ -14,13 +14,13 @@ public interface BoardMapper {
     @Select("SELECT now()")
     String getTime();
 
-    Board read(Long bno);
+    List<Map<String,Object>> getTextWithImg(@Param("bno") Long bno);
 
     List<Map<String,Object>> getList(@Param("page") int page);
 
     Long insertBoard(Board board);
 
-    Long update(Board board);
+    Long modifyText(Board board);
 
     Long delete(Long bno);
 }
