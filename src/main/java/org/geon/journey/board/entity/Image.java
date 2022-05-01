@@ -9,10 +9,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @ToString
 public class Image {
 
     private Long ino;
+
+    private Long bno;
 
     private String uuid;
 
