@@ -4,8 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.geon.journey.board.mapper.BoardMapper">
 
-    <select id="read" resultType="org.geon.journey.board.entity.Board">
-        select * from tbl_board where bno = #{bno} and deleteFlag = false
+    <select id="getTextWithImg" resultType="map">
+        select tb.bno, tb.text,group_concat(ino order by ti.ino separator '|') as ino,group_concat(uuid order by ti.ino separator '|') as uuid, group_concat(imgName order by ti.ino separator '|') as imgName,group_concat(path order by ti.ino separator '|')as path, tb.regDate
+        from tbl_board tb left join tbl_image ti on ti.bno = tb.bno
+        where tb.bno = #{bno} and tb.deleteFlag = false and ti.deleteFlag = false
+        group by bno
+        order by bno desc;
     </select>
 
     <select id="getList" resultType="map">
@@ -20,15 +24,18 @@
         from tbl_board tb left join tbl_image ti on ti.bno = tb.bno
         where tb.bno > 0 and tb.deleteFlag = false and ti.deleteFlag = false
         group by bno
-        order by bno asc
-        limit #{page},10;
+        order by bno desc
+        limit #{page},2;
     </select>
 
     <insert id="insertBoard">
-        insert into tbl_board (text) values (#{text})
+        <selectKey keyProperty="bno" order="BEFORE" resultType="long">
+            select MAX(bno) + 1 from tbl_board
+        </selectKey>
+        insert into tbl_board (bno,text) values (#{bno},#{text})
     </insert>
 
-    <update id="update">
+    <update id="modifyText">
         update tbl_board set text = #{text} where bno = #{bno}
     </update>
 
