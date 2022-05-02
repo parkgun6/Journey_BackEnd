@@ -22,8 +22,4 @@ public class Board {
     private Date regDate;
 
     private Date modDate;
-
-    public void changeText(String text){
-        this.text = text;
-    }
 }
