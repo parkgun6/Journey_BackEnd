@@ -1,4 +1,4 @@
-package org.geon.journey.mapper;
+package org.geon.journey.board.mapper;
 
 import lombok.extern.log4j.Log4j2;
 import org.geon.journey.board.entity.Board;
