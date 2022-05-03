@@ -8,7 +8,9 @@ import java.util.Optional;
 @Mapper
 public interface MemberMapper {
 
-    Long registMember(Member member);
+    void registMember(Member member);
+
+    void registMemberRole(Member member);
 
     Optional<Member> findByEmail(String username, boolean fromSocial);
 }
