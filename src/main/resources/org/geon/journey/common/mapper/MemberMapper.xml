@@ -7,7 +7,18 @@
         insert into tbl_member (email, name, password) VALUE (#{email},#{name},#{password});
     </insert>
 
+    <insert id="registMemberRole">
+        insert into tbl_member_role_set (email, roleSet) VALUE (#{email}, #{roleSet});
+    </insert>
+
     <select id="findByEmail" resultType="org.geon.journey.common.entity.Member">
-        select * from tbl_member where email = #{username} and fromSocial = #{fromSocial}
+        select m.email,
+               m.name,
+               m.password,
+               m.fromSocial,
+               m.regDate,
+               m.modDate,
+               group_concat(mr.roleSet) as roleSet
+        from tbl_member m left outer join tbl_member_role_set mr on m.email = mr.email where m.email = #{username} and m.fromSocial = #{fromSocial}
     </select>
 </mapper>
