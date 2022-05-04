@@ -17,12 +17,13 @@ import java.util.stream.Collectors;
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class UserDetailService implements UserDetailsService {
+public class CustomUserDetailService implements UserDetailsService {
 
     private final MemberMapper mapper;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("UserDetailService loadUserByUsername : " + username);
+        log.info("CustomUserDetailService loadUserByUsername : " + username);
 
         Optional<Member> result = mapper.findByEmail(username, false);
 
