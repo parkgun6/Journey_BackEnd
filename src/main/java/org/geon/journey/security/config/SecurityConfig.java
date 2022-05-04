@@ -25,8 +25,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll();
-        http.formLogin();
+                .antMatchers("/*").hasRole("USER");
+        http.formLogin()
+                .loginPage("http://localhost:3000/login")
+                .loginProcessingUrl("http://localhost:3000/login_proc")
+                .defaultSuccessUrl("http://localhost:3000/");
+        http.oauth2Login()
+                .loginPage("http://localhost:3000/login")
+                .defaultSuccessUrl("http://localhost:3000/");
+        http.csrf().disable();
+        http.oauth2Login();
     }
 
 }
