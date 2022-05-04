@@ -18,7 +18,8 @@
                m.fromSocial,
                m.regDate,
                m.modDate,
-               group_concat(mr.roleSet) as roleSet
+               mr.roleSet
         from tbl_member m left outer join tbl_member_role_set mr on m.email = mr.email where m.email = #{username} and m.fromSocial = #{fromSocial}
+        group by m.email
     </select>
 </mapper>
