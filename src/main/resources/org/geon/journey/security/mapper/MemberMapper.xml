@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.geon.journey.common.mapper.MemberMapper">
+<mapper namespace="org.geon.journey.security.mapper.MemberMapper">
     <insert id="registMember">
         insert into tbl_member (email, name, password) VALUE (#{email},#{name},#{password});
     </insert>
@@ -11,7 +11,7 @@
         insert into tbl_member_role_set (email, roleSet) VALUE (#{email}, #{roleSet});
     </insert>
 
-    <select id="findByEmail" resultType="org.geon.journey.common.entity.Member">
+    <select id="findByEmail" resultType="org.geon.journey.security.entity.Member">
         select m.email,
                m.name,
                m.password,

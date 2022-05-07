@@ -1,4 +1,4 @@
-package org.geon.journey.common.entity;
+package org.geon.journey.security.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

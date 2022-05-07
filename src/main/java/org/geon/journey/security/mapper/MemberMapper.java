@@ -1,7 +1,7 @@
-package org.geon.journey.common.mapper;
+package org.geon.journey.security.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.geon.journey.common.entity.Member;
+import org.geon.journey.security.entity.Member;
 
 import java.util.Optional;
 

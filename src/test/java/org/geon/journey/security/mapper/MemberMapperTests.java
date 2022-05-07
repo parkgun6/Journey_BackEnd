@@ -1,17 +1,15 @@
-package org.geon.journey.common.mapper;
+package org.geon.journey.security.mapper;
 
 import lombok.extern.log4j.Log4j2;
-import org.geon.journey.common.entity.Member;
-import org.geon.journey.common.entity.MemberRole;
-import org.geon.journey.common.mapper.MemberMapper;
+import org.geon.journey.security.entity.Member;
+import org.geon.journey.security.entity.MemberRole;
+import org.geon.journey.security.mapper.MemberMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @SpringBootTest

@@ -1,4 +1,4 @@
-package org.geon.journey.common.dto;
+package org.geon.journey.security.dto;
 
 import lombok.Data;
 import lombok.Getter;
