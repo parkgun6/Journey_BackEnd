@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.geon.journey.common.mapper.ReplyMapper">
+
+    <insert id="insertReply">
+        insert into tbl_reply (bno, email, reply) value (#{bno}, #{email}, #{reply})
+    </insert>
+
+    <select id="getReplys" resultType="org.geon.journey.common.entity.Reply">
+        select bno,
+               email,
+               group_concat(reply separator '|') as reply
+        from tbl_reply
+        where
+            rno > 0 and
+            deleteFlag = false
+        group by bno
+        order by bno desc
+            limit #{page},2;
+    </select>
+
+</mapper>
