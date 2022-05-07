@@ -29,6 +29,7 @@ public interface BoardService {
         Board boardEntity = Board.builder()
                 .bno(dto.getBno())
                 .text(dto.getText())
+                .email(dto.getEmail())
                 .build();
 
         entityMap.put("boardEntity", boardEntity);
@@ -52,9 +53,10 @@ public interface BoardService {
     }
 
     default BoardDTO entityToDTO(Board entity, List<Image> imgEntitys){
-        BoardDTO testDTO = BoardDTO.builder()
+        BoardDTO boardDTO = BoardDTO.builder()
                 .bno(entity.getBno())
                 .text(entity.getText())
+                .email(entity.getEmail())
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .build();
@@ -66,8 +68,8 @@ public interface BoardService {
                     .build();
         }).collect(Collectors.toList());
 
-        testDTO.setImgDTOList(imgDTOList);
+        boardDTO.setImgDTOList(imgDTOList);
 
-        return testDTO;
+        return boardDTO;
     }
 }
