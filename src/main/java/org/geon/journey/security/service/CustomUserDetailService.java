@@ -1,10 +1,10 @@
-package org.geon.journey.common.service;
+package org.geon.journey.security.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.geon.journey.common.dto.AuthMemberDTO;
-import org.geon.journey.common.entity.Member;
-import org.geon.journey.common.mapper.MemberMapper;
+import org.geon.journey.security.dto.AuthMemberDTO;
+import org.geon.journey.security.entity.Member;
+import org.geon.journey.security.mapper.MemberMapper;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
