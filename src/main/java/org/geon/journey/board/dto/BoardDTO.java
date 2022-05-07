@@ -20,6 +20,8 @@ public class BoardDTO {
 
     private String text;
 
+    private String email;
+
     private Date regDate;
 
     private Date modDate;

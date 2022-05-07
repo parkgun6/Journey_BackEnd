@@ -17,6 +17,8 @@ public class Board {
 
     private String text;
 
+    private String email;
+
     private boolean deleteFlag;
 
     private Date regDate;
