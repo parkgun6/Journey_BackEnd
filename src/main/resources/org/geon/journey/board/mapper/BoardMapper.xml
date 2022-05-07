@@ -20,9 +20,14 @@
                group_concat(uuid order by ti.ino separator '|') as uuid,
                group_concat(imgName order by ti.ino separator '|') as imgName,
                group_concat(path order by ti.ino separator '|')as path,
-               tb.regDate
-        from tbl_board tb left join tbl_image ti on ti.bno = tb.bno
-        where tb.bno > 0 and tb.deleteFlag = false and ti.deleteFlag = false
+               tb.regDate,
+               tb.email
+        from tbl_board tb
+            left join tbl_image ti on tb.bno = ti.bno
+        where
+              tb.bno > 0 and
+              tb.deleteFlag = false and
+              ti.deleteFlag = false
         group by bno
         order by bno desc
         limit #{page},2;
