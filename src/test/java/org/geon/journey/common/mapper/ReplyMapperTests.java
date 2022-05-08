@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
 import java.util.stream.LongStream;
 
 @SpringBootTest
@@ -25,5 +26,11 @@ public class ReplyMapperTests {
                     .build();
             mapper.insertReply(reply);
         });
+    }
+
+    @Test
+    public void getReplys() {
+        List<Reply> reply = mapper.getReplys(1);
+        reply.forEach(res -> log.info(res));
     }
 }
