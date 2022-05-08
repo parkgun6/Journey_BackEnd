@@ -11,7 +11,7 @@ import java.util.Date;
 @ToString
 public class Reply {
 
-    private Long rno;
+    private String rno;
 
     private Long bno;
 
@@ -21,7 +21,7 @@ public class Reply {
 
     private boolean deleteFlag;
 
-    private Date regDate;
+    private String regDate;
 
-    private Date modDate;
+    private String modDate;
 }

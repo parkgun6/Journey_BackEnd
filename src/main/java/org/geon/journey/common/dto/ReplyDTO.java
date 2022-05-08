@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class ReplyDTO {
 
-    private Long rno;
+    private String rno;
 
     private Long bno;
 
@@ -23,7 +23,7 @@ public class ReplyDTO {
 
     private boolean deleteFlag;
 
-    private Date regDate;
+    private String regDate;
 
-    private Date modDate;
+    private String modDate;
 }
