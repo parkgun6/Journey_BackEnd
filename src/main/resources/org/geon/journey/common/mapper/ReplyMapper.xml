@@ -9,9 +9,11 @@
     </insert>
 
     <select id="getReplys" resultType="org.geon.journey.common.entity.Reply">
-        select bno,
-               email,
-               group_concat(reply separator '|') as reply
+        select group_concat(rno separator '|') as rno,
+               bno,
+               group_concat(email separator '|') as email,
+               group_concat(reply separator '|') as reply,
+               group_concat(regDate separator '|') as regDate
         from tbl_reply
         where
             rno > 0 and
